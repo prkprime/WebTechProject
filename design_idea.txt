@@ -1,5 +1,6 @@
 page 1: login/home - Menu, Contests (in Cards), Contact Us
 (login with google, Pratik will do the reaserch)
+seperate logins for participent and organisers
 
 page 2: Opens after clicking on cards, Shows Detailed description (Overview, Themes, Prizes, Rules, Teams, FAQ,s, Contact Organizer)
 
