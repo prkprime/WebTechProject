@@ -1,6 +1,8 @@
 page 1: login/home - Menu, Contests (in Cards), Contact Us
 (login with google, Pratik will do the research)
-seperate logins for participants and organisers
+seperate logins (by sticky tabs) for participants and organisers
+
+misc: Language used - HTML. CSS, PHP(not so sure), Node.js, React.js, GOlang
 
 page 2: Opens after clicking on cards, Shows Detailed description (Overview, Themes, Prizes, Rules, Teams, FAQ,s, Contact Organizer)
 
@@ -9,3 +11,4 @@ Page 3: Register For Hackathon (Prefetch and show data from profile in registrat
 Page 4: Create New Hackathon (In Header Options), (Details, Problem Statement)
 
 Page 5:
+© 2019 GitHub, Inc.
