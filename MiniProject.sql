@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
--- Host: localhost    Database: mini
+-- Host: localhost    Database: miniproject
 -- ------------------------------------------------------
--- Server version	8.0.17
+-- Server version	8.0.18
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -54,12 +54,12 @@ DROP TABLE IF EXISTS `hackathon_creator`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `hackathon_creator` (
-  `username` varchar(50) DEFAULT NULL,
-  `HackathonID` int(11) DEFAULT NULL,
-  KEY `username` (`username`),
-  KEY `HackathonID` (`HackathonID`),
-  CONSTRAINT `hackathon_creator_ibfk_1` FOREIGN KEY (`username`) REFERENCES `userhackathon` (`Username`),
-  CONSTRAINT `hackathon_creator_ibfk_2` FOREIGN KEY (`HackathonID`) REFERENCES `userhackathon` (`HackathonID`)
+  `Username` varchar(50) NOT NULL,
+  `HackathonID` int(11) NOT NULL,
+  PRIMARY KEY (`Username`,`HackathonID`),
+  KEY `HackathonIdRef_idx` (`HackathonID`),
+  CONSTRAINT `HackathonIdRef` FOREIGN KEY (`HackathonID`) REFERENCES `hackathon` (`Id`),
+  CONSTRAINT `UserNameRef` FOREIGN KEY (`Username`) REFERENCES `user` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -83,11 +83,11 @@ CREATE TABLE `hackathon_participant` (
   `username` varchar(50) DEFAULT NULL,
   `HackathonID` int(11) DEFAULT NULL,
   `statementID` int(11) DEFAULT NULL,
-  KEY `username` (`username`),
-  KEY `HackathonID` (`HackathonID`),
-  KEY `statementID` (`statementID`),
-  CONSTRAINT `hackathon_participant_ibfk_1` FOREIGN KEY (`username`) REFERENCES `userhackathon` (`Username`),
-  CONSTRAINT `hackathon_participant_ibfk_2` FOREIGN KEY (`HackathonID`) REFERENCES `userhackathon` (`HackathonID`),
+  KEY `hackathon_participant_ibfk_1_idx` (`username`),
+  KEY `hackathon_participant_ibfk_2_idx` (`HackathonID`),
+  KEY `hackathon_participant_ibfk_3_idx` (`statementID`),
+  CONSTRAINT `hackathon_participant_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`),
+  CONSTRAINT `hackathon_participant_ibfk_2` FOREIGN KEY (`HackathonID`) REFERENCES `hackathon` (`Id`),
   CONSTRAINT `hackathon_participant_ibfk_3` FOREIGN KEY (`statementID`) REFERENCES `problemstatement` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -184,32 +184,6 @@ LOCK TABLES `user` WRITE;
 INSERT INTO `user` VALUES ('psbakre','psbakre@yahoo.com',_binary 'Praan123','2019-12-21 06:23:37');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `userhackathon`
---
-
-DROP TABLE IF EXISTS `userhackathon`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `userhackathon` (
-  `Username` varchar(50) NOT NULL,
-  `HackathonID` int(11) NOT NULL,
-  PRIMARY KEY (`Username`,`HackathonID`),
-  KEY `HackathonIdRef_idx` (`HackathonID`),
-  CONSTRAINT `HackathonIdRef` FOREIGN KEY (`HackathonID`) REFERENCES `hackathon` (`Id`),
-  CONSTRAINT `UserNameRef` FOREIGN KEY (`Username`) REFERENCES `user` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `userhackathon`
---
-
-LOCK TABLES `userhackathon` WRITE;
-/*!40000 ALTER TABLE `userhackathon` DISABLE KEYS */;
-/*!40000 ALTER TABLE `userhackathon` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -220,4 +194,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-03 15:49:48
+-- Dump completed on 2020-01-04 20:09:23
