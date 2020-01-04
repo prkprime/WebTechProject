@@ -1,13 +1,13 @@
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
--- Host: localhost    Database: miniproject
+-- Host: 127.0.0.1    Database: miniproject
 -- ------------------------------------------------------
 -- Server version	8.0.18
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -38,15 +38,6 @@ CREATE TABLE `hackathon` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `hackathon`
---
-
-LOCK TABLES `hackathon` WRITE;
-/*!40000 ALTER TABLE `hackathon` DISABLE KEYS */;
-/*!40000 ALTER TABLE `hackathon` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `hackathon_creator`
 --
 
@@ -62,15 +53,6 @@ CREATE TABLE `hackathon_creator` (
   CONSTRAINT `UserNameRef` FOREIGN KEY (`Username`) REFERENCES `user` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `hackathon_creator`
---
-
-LOCK TABLES `hackathon_creator` WRITE;
-/*!40000 ALTER TABLE `hackathon_creator` DISABLE KEYS */;
-/*!40000 ALTER TABLE `hackathon_creator` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `hackathon_participant`
@@ -93,15 +75,6 @@ CREATE TABLE `hackathon_participant` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `hackathon_participant`
---
-
-LOCK TABLES `hackathon_participant` WRITE;
-/*!40000 ALTER TABLE `hackathon_participant` DISABLE KEYS */;
-/*!40000 ALTER TABLE `hackathon_participant` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `problemstatement`
 --
 
@@ -121,15 +94,6 @@ CREATE TABLE `problemstatement` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `problemstatement`
---
-
-LOCK TABLES `problemstatement` WRITE;
-/*!40000 ALTER TABLE `problemstatement` DISABLE KEYS */;
-/*!40000 ALTER TABLE `problemstatement` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `profile`
 --
 
@@ -143,21 +107,12 @@ CREATE TABLE `profile` (
   `Occupation` varchar(45) DEFAULT NULL,
   `OrganizationName` varchar(100) DEFAULT NULL,
   `ProfilePicture` mediumblob NOT NULL,
-  `ContactPhone` int(11) DEFAULT NULL,
+  `ContactPhone` varchar(15) DEFAULT NULL,
   `Type` varchar(2) DEFAULT 'P',
   PRIMARY KEY (`username`),
   CONSTRAINT `UserName` FOREIGN KEY (`username`) REFERENCES `user` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `profile`
---
-
-LOCK TABLES `profile` WRITE;
-/*!40000 ALTER TABLE `profile` DISABLE KEYS */;
-/*!40000 ALTER TABLE `profile` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `user`
@@ -176,14 +131,8 @@ CREATE TABLE `user` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user`
+-- Dumping routines for database 'miniproject'
 --
-
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('psbakre','psbakre@yahoo.com',_binary 'Praan123','2019-12-21 06:23:37');
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -194,4 +143,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-04 20:09:23
+-- Dump completed on 2020-01-04 20:53:15
