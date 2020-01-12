@@ -26,15 +26,17 @@ CREATE TABLE `hackathon` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Title` varchar(100) NOT NULL,
   `Subtitle` varchar(200) DEFAULT NULL,
-  `Description` varchar(1000) DEFAULT NULL,
+  `Description` varchar(3000) DEFAULT NULL,
   `ContactMail` varchar(400) NOT NULL,
-  `ContactPhone` int(10) NOT NULL,
+  `ContactPhone` varchar(15) NOT NULL,
   `ContactWebsite` varchar(200) NOT NULL,
   `CoverPhoto` mediumblob,
   `ThumbNail` mediumblob,
+  `StartDate` datetime NOT NULL,
+  `EndDate` datetime NOT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `Title_UNIQUE` (`Title`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,4 +145,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-04 20:53:15
+-- Dump completed on 2020-01-12 20:09:38
