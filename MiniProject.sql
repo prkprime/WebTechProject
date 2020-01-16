@@ -36,7 +36,7 @@ CREATE TABLE `hackathon` (
   `EndDate` datetime NOT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `Title_UNIQUE` (`Title`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,9 +64,10 @@ DROP TABLE IF EXISTS `hackathon_participant`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `hackathon_participant` (
-  `username` varchar(50) DEFAULT NULL,
-  `HackathonID` int(11) DEFAULT NULL,
-  `statementID` int(11) DEFAULT NULL,
+  `username` varchar(50) NOT NULL,
+  `HackathonID` int(11) NOT NULL,
+  `statementID` int(11) NOT NULL,
+  PRIMARY KEY (`username`,`HackathonID`,`statementID`),
   KEY `hackathon_participant_ibfk_1_idx` (`username`),
   KEY `hackathon_participant_ibfk_2_idx` (`HackathonID`),
   KEY `hackathon_participant_ibfk_3_idx` (`statementID`),
@@ -85,11 +86,11 @@ DROP TABLE IF EXISTS `problemstatement`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `problemstatement` (
   `Id` int(11) NOT NULL,
-  `HackathonId` int(11) DEFAULT NULL,
+  `HackathonId` int(11) NOT NULL,
   `ProblemStatement` varchar(1000) NOT NULL,
   `Description` varchar(2000) NOT NULL,
   `Category` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`Id`),
+  PRIMARY KEY (`Id`,`HackathonId`),
   KEY `HackathonId_idx` (`HackathonId`),
   CONSTRAINT `HackathonId` FOREIGN KEY (`HackathonId`) REFERENCES `hackathon` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -145,4 +146,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-12 20:09:38
+-- Dump completed on 2020-01-16 14:31:58

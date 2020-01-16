@@ -21,7 +21,7 @@
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('prk','prkprime007@gmail.com',_binary 'prkaly007','2020-01-04 14:55:45'),('psbakre','psbakre@yahoo.com',_binary 'Praan123','2020-01-04 14:54:52'),('rujul.w','rujul.w@gmail.com',_binary 'rujul.w','2020-01-04 15:13:09');
+INSERT INTO `user` VALUES ('prk','prkprime007@gmail.com',_binary 'prkaly007','2020-01-04 14:55:45'),('psbakre','psbakre@yahoo.com',_binary 'Praan123','2020-01-04 14:54:52'),('rex','07rritz@gmail.com',_binary 'abcd1234','2020-01-16 06:27:00'),('rujul.w','rujul.w@gmail.com',_binary 'rujul.w','2020-01-04 15:13:09');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -34,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-12 20:23:08
+-- Dump completed on 2020-01-16 14:30:20

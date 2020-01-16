@@ -21,6 +21,7 @@
 
 LOCK TABLES `hackathon_participant` WRITE;
 /*!40000 ALTER TABLE `hackathon_participant` DISABLE KEYS */;
+INSERT INTO `hackathon_participant` VALUES ('psbakre',2,1),('rex',3,5),('rujul.w',3,6),('rujul.w',4,7);
 /*!40000 ALTER TABLE `hackathon_participant` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -33,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-12 20:23:08
+-- Dump completed on 2020-01-16 14:30:21
